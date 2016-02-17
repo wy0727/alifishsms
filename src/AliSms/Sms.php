@@ -11,15 +11,12 @@ class Sms
     protected $aliSmsAppKey;
     //定义secret
     protected $aliSmsSecretKey;
-    //定义产品
-    protected $product;
 
     //初始化参数
-    public function __construct($appKey,$secretKey,$product)
+    public function __construct($appKey,$secretKey)
     {
         $this->aliSmsAppKey=$appKey;
         $this->aliSmsSecretKey=$secretKey;
-        $this->product=$product;
     }
 
 
@@ -27,12 +24,12 @@ class Sms
      * 发送数字短信
      *
      * @param  string $to        收信人
-     * @param  string $code      验证数字
+     * @param  JsonString $date  短信内容
      * @param  string $template  模板编号
      * @param  string $signName  功能签名
      * @return bool
      * */
-    public function send($to, $code, $template, $signName)
+    public function send($to, $data, $template, $signName)
     {
         /* *
          * SDK工作目录
@@ -58,7 +55,7 @@ class Sms
         $appKey = $this->aliSmsAppKey;
         $secretKey = $this->aliSmsSecretKey;
         $product = $this->product;
-        $data = '{"code":"' . $code . '","product":"' . $product . '"}'; //Json格式
+        //$data = '{"code":"' . $code . '","product":"' . $product . '"}'; //Json格式
 
         /**
          * 创建客户端实例

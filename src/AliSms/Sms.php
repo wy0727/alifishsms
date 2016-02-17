@@ -24,7 +24,7 @@ class Sms
      * 发送数字短信
      *
      * @param  string $to        收信人
-     * @param  JsonString $date  短信内容
+     * @param  JsonString $date  短信内容(eg:$data=json_encode(['code'=>'1234','product'=>'测试product']);)
      * @param  string $template  模板编号
      * @param  string $signName  功能签名
      * @return bool
@@ -54,7 +54,6 @@ class Sms
         // 数据准备
         $appKey = $this->aliSmsAppKey;
         $secretKey = $this->aliSmsSecretKey;
-        $product = $this->product;
         //$data = '{"code":"' . $code . '","product":"' . $product . '"}'; //Json格式
 
         /**

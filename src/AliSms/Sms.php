@@ -32,7 +32,7 @@ class Sms
      * @param  string $signName  功能签名
      * @return bool
      * */
-    public static function send($to, $code, $template, $signName)
+    public function send($to, $code, $template, $signName)
     {
         /* *
          * SDK工作目录
